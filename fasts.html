@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fasts Tracker</title>
+    <!-- MATERIAL CD -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"> <!-- FontAwesome -->
+    <!-- STYLESHEET -->
+    <link rel="stylesheet" href="./CSS/dashboard.css"> 
+</head>
+<body>
+    <div class="container">
+<main> 
+    <h1>Fast Tracker</h1>
+    
+    <div class="calendar">
+        <div class="calendar-header">
+            <div>Mon</div>
+            <div>Tue</div>
+            <div>Wed</div>
+            <div>Thu</div>
+            <div>Fri</div>
+            <div>Sat</div>
+            <div>Sun</div>
+        </div>
+        <div id="apiResponse" class="calendar-body"></div>
+    </div>
+
+</main>
+    </div>
+    <script src="./JS/firebase-config.js" type="module"></script>
+    <script src="./JS/layout.js" type="module"></script>
+<script src="/JS/fasts.js" type="module"></script>
+</body>
+</html>

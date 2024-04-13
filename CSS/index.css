@@ -1,0 +1,41 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0; /* Optional: change to match your design */
+}
+
+.content {
+    text-align: center;
+}
+
+.logo {
+    width: 500px; /* Increase the size of the logo */
+    height: auto;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.button-container {
+    margin-top: 20px;
+}
+
+button {
+    background-color: #e791ce; 
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 16px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px; /* Optional: rounded corners */
+}
+

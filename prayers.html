@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prayers Tracker</title>
+    <!-- MATERIAL CD -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"> <!-- FontAwesome -->
+    <!-- STYLESHEET -->
+    <link rel="stylesheet" href="./CSS/dashboard.css"> 
+</head>
+<body>
+    <div class="container">
+
+    <main> 
+        <h1>Prayer Times:</h1>
+
+        <div class="main-container">
+        <div class="left-content">
+        <div id="prayer-times">
+            <div class="date-navigation">
+                <button id="prev-day" class="date-nav-btn"><i class="fas fa-chevron-left"></i></button>
+                <div class="dates-display">
+                    <div id="gregorianDate" class="date-display">Loading Gregorian Date...</div>
+                    <div id="hijriDate" class="date-display">Loading Hijri Date...</div>
+                </div>
+                <button id="next-day" class="date-nav-btn"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            <div class="prayers-container">
+                <!-- Each prayer time box -->
+                <div class="prayer-box" data-prayer="Fajr">
+                    <span class="prayer-icon"><i class="fas fa-moon"></i></span>
+                    <div class="prayer-details">
+                        <span class="prayer-name">Fajr</span>
+                        <span class="prayer-time" id="fajrTime">--:--</span>
+                        <span class="circle-tick" data-checked="false"><i class="fas fa-check"></i></span>
+
+                    </div>
+                </div>
+                <div class="prayer-box">
+                    <span class="prayer-icon"><i class="fas fa-sun"></i></span>
+                    <div class="prayer-details">
+                        <span class="prayer-name">Sunrise</span>
+                        <span class="prayer-time" id="sunriseTime">--:--</span>
+
+                    </div>
+                </div>
+                <div class="prayer-box" data-prayer="Dhuhr">
+                    <span class="prayer-icon"><i class="fas fa-sun"></i></span>
+                    <div class="prayer-details">
+                        <span class="prayer-name">Dhuhr</span>
+                        <span class="prayer-time" id="dhuhrTime">--:--</span>
+                        <span class="circle-tick" data-checked="false"><i class="fas fa-check"></i></span>
+
+                    </div>
+                </div> 
+                <div class="prayer-box" data-prayer="Asr">
+                    <span class="prayer-icon"><i class="fas fa-cloud-sun"></i></span>
+                    <div class="prayer-details">
+                        <span class="prayer-name">Asr</span>
+                        <span class="prayer-time" id="asrTime">--:--</span>
+                        <span class="circle-tick" data-checked="false"><i class="fas fa-check"></i></span>
+
+                    </div>
+                </div> 
+                <div class="prayer-box" data-prayer="Maghrib">
+                    <span class="prayer-icon"><i class="fas fa-cloud-moon"></i></span>
+                    <div class="prayer-details">
+                        <span class="prayer-name">Maghrib</span>
+                        <span class="prayer-time" id="maghribTime">--:--</span>
+                        <span class="circle-tick" data-checked="false"><i class="fas fa-check"></i></span>
+
+                    </div>
+                </div>
+                <div class="prayer-box" data-prayer="Isha">
+                    <span class="prayer-icon"><i class="fas fa-moon"></i></span>
+                    <div class="prayer-details">
+                        <span class="prayer-name">Isha</span>
+                        <span class="prayer-time" id="ishaTime">--:--</span>
+                        <span class="circle-tick" data-checked="false"><i class="fas fa-check"></i></span>
+
+                    </div>
+                </div>
+               
+            </div>
+            <div id="location-input">
+                <input type="text" id="locationInput" placeholder="City, Country">
+                <button onclick="updatePrayerTimes()">Get Prayer Times</button>
+            </div>
+            <div id="message" ></div>
+</div>
+<div id="weekly-trend-container" class="weekly-trend-container">
+    <h2>Weekly Prayer Trend</h2>
+    <div id="weekly-trend" class="weekly-trend">
+
+    <!-- Weekly trend circles will be dynamically added here -->
+</div>
+</div>
+</div>
+<div class="right-content">
+<div id="qadha-tracker" class="qadha-tracker-container">
+    <h2>Qadha Prayer Tracker</h2>
+    <div class="qadha-prayers-container">
+
+        <div class="prayer-item">
+            <span class="prayer-name">Fajr</span>
+            <span class="decrement-icon" data-action="decrement" data-prayer="Fajr">-</span>
+            <span class="prayer-count" id="countFajr">0</span>
+            <span class="increment-icon" data-action="increment" data-prayer="Fajr">+</span>
+        </div>
+        
+        <div class="prayer-item">
+            <span class="prayer-name">Dhuhr</span>
+            <span class="decrement-icon" data-action="decrement" data-prayer="Dhuhr">-</span>
+            <span class="prayer-count" id="countDhuhr">0</span>
+            <span class="increment-icon" data-action="increment" data-prayer="Dhuhr">+</span>
+        </div>
+      
+        <div class="prayer-item">
+            <span class="prayer-name">Asr</span>
+            <span class="decrement-icon" data-action="decrement" data-prayer="Asr">-</span>
+            <span class="prayer-count" id="countAsr">0</span>
+            <span class="increment-icon" data-action="increment" data-prayer="Asr">+</span>
+        </div>
+        
+        <div class="prayer-item">
+            <span class="prayer-name">Maghrib</span>
+            <span class="decrement-icon" data-action="decrement" data-prayer="Maghrib">-</span>
+            <span class="prayer-count" id="countMaghrib">0</span>
+            <span class="increment-icon" data-action="increment" data-prayer="Maghrib">+</span>
+        </div> 
+
+        <div class="prayer-item">
+            <span class="prayer-name">Isha</span>
+            <span class="decrement-icon" data-action="decrement" data-prayer="Isha">-</span>
+            <span class="prayer-count" id="countIsha">0</span>
+            <span class="increment-icon" data-action="increment" data-prayer="Isha">+</span>
+        </div>
+        
+    </div>
+    <div class="total-qadha-container">
+        <h3>Total Qadha: </h3>
+        <span id="totalQadhaCount">0</span>
+    </div>
+</div>
+</div>
+    </main>
+
+    </div>
+    <script src="./JS/firebase-config.js" type="module"></script>
+    <script src="./JS/layout.js" type="module"></script>
+<script src="./JS/prayers copy.js" ></script>
+</body>
+</html>
